@@ -1,3 +1,4 @@
+function startGame() {
 let hasKey = false;
 let hasSword = false;
 let isAlive = true;
@@ -9,6 +10,7 @@ while (isAlive) {
         2. Осмотреть кусты.
         3. Попытаться открыть старую дверь в дереве.
         4. Сдаться и закончить игру.
+
     `);
 
     switch (choice) {
@@ -74,3 +76,5 @@ while (isAlive) {
 }
 
 alert("Спасибо за игру! Попробуй еще раз, чтобы увидеть другие концовки.");
+}
+document.getElementById('startGame').addEventListener('click', startGame);
