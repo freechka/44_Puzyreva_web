@@ -1,0 +1,349 @@
+/* Общие стили */
+body {
+  font-family: "Inter", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+  color: #000000;
+  line-height: 1.6;
+}
+
+.frame {
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+/* Шапка */
+.header {
+  background-color: #ffd700;
+  padding: 20px;
+  text-align: center;
+}
+
+.header h1 {
+  font-size: 55px;
+  font-weight: 800;
+  margin: 0;
+}
+
+.header p {
+  font-size: 45px;
+  font-weight: 300;
+  margin: 10px 0;
+}
+
+.social-icon {
+  width: 50px;
+  height: 50px;
+  margin-top: 10px;
+}
+
+/* Основной контент */
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px;
+  background-color: #ffffff;
+}
+
+.hero-content {
+  max-width: 50%;
+}
+
+.hero h2 {
+  font-size: 55px;
+  font-weight: 800;
+  margin: 0;
+}
+
+.hero p {
+  font-size: 24px;
+  margin: 20px 0;
+}
+
+.hero-image {
+  max-width: 40%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.cta-button {
+  background-color: #ff6347;
+  color: #ffffff;
+  border: none;
+  padding: 15px 30px;
+  font-size: 24px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.cta-button:hover {
+  background-color: #ff4500;
+}
+
+/* Особенности */
+.features {
+  display: flex;
+  justify-content: space-around;
+  padding: 50px;
+  background-color: #f4f4f4;
+}
+
+.feature {
+  text-align: center;
+  max-width: 30%;
+}
+
+.feature img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.feature h3 {
+  font-size: 32px;
+  font-weight: 900;
+  font-style: italic;
+  margin: 20px 0;
+}
+
+.feature p {
+  font-size: 24px;
+  color: #555;
+}
+
+/* Причины */
+.reasons {
+  margin: 40px 0;
+  padding: 50px;
+  background-color: #ffffff;
+}
+
+.reasons h2 {
+  font-size: 48px;
+  font-weight: 800;
+  text-align: center;
+}
+
+.reasons ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.reasons li {
+  font-size: 24px;
+  margin: 10px 0;
+  padding-left: 20px;
+  position: relative;
+}
+
+.reasons li::before {
+  content: "🍌";
+  position: absolute;
+  left: 0;
+}
+
+/* Отзывы */
+.testimonials {
+  padding: 50px;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+.testimonials h2 {
+  font-size: 48px;
+  font-weight: 800;
+  margin-bottom: 30px;
+}
+
+.testimonial {
+  background-color: #ffd7d7;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.testimonial img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+.testimonial p {
+  font-size: 24px;
+  font-style: italic;
+  color: #555;
+}
+
+.testimonial span {
+  display: block;
+  font-weight: bold;
+  margin-top: 10px;
+  color: #333;
+}
+
+/* Призыв к действию */
+.cta {
+  text-align: center;
+  padding: 50px;
+  background-color: #ff6347;
+  color: #ffffff;
+}
+
+.cta h2 {
+  font-size: 48px;
+  font-weight: 800;
+  margin: 0 0 20px;
+}
+
+/* Подвал */
+.footer {
+  background-color: #000000;
+  color: #ffffff;
+  text-align: center;
+  padding: 20px;
+  border-top: 1px solid #ddd;
+  margin-top: 40px;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 24px;
+}
+
+/* Сомнительная реклама */
+.ad-left, .ad-right, .ad-bottom {
+  background-color: #ffcc00;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  margin: 10px;
+  position: fixed;
+}
+
+.ad-left {
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 150px;
+}
+
+.ad-right {
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 150px;
+}
+
+.ad-bottom {
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  max-width: 600px;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+
+  .hero-image {
+    max-width: 80%;
+    margin-top: 20px;
+  }
+
+  .features {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .feature {
+    max-width: 80%;
+    margin-bottom: 30px;
+  }
+
+  .testimonial {
+    max-width: 90%;
+  }
+
+  .ad-left, .ad-right, .ad-bottom {
+    position: static;
+    width: 100%;
+    margin: 10px 0;
+    transform: none;
+  }
+}
+
+/* Адаптивность для экранов от 320px */
+@media (max-width: 480px) {
+  .header h1 {
+    font-size: 32px;
+  }
+
+  .header p {
+    font-size: 24px;
+  }
+
+  .hero h2 {
+    font-size: 32px;
+  }
+
+  .hero p {
+    font-size: 18px;
+  }
+
+  .cta-button {
+    font-size: 18px;
+    padding: 10px 20px;
+  }
+
+  .features {
+    padding: 20px;
+  }
+
+  .feature h3 {
+    font-size: 24px;
+  }
+
+  .feature p {
+    font-size: 18px;
+  }
+
+  .reasons h2 {
+    font-size: 32px;
+  }
+
+  .reasons li {
+    font-size: 18px;
+  }
+
+  .testimonials h2 {
+    font-size: 32px;
+  }
+
+  .testimonial p {
+    font-size: 18px;
+  }
+
+  .cta h2 {
+    font-size: 32px;
+  }
+
+  .footer p {
+    font-size: 18px;
+  }
+}
