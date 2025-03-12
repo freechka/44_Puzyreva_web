@@ -1,0 +1,556 @@
+/* Основные стили */
+body {
+  font-family: "Inter", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+  color: #000000;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Тёмная тема */
+body.dark-theme {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+.dark-theme .header {
+  background-color: #333;
+}
+
+.dark-theme .footer {
+  background-color: #222;
+  color: #ffffff;
+}
+
+.dark-theme .cta {
+  background-color: #8b0000;
+}
+
+.dark-theme .testimonial {
+  background-color: #444;
+  color: #ffffff;
+}
+
+/* Контейнер */
+.frame {
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  box-sizing: border-box;
+}
+
+.dark-theme .frame {
+  background-color: #1e1e1e;
+}
+
+/* Шапка */
+.header {
+  background-color: #ffd700;
+  padding: 20px;
+  width: 100%;
+  height: 200px;
+  box-sizing: border-box;
+}
+
+.header-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header h1 {
+  font-size: 55px;
+  font-weight: 800;
+}
+
+.header-content h1 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+}
+
+.social-icon {
+  width: 70px;
+  height: 70px;
+  vertical-align: middle;
+}
+
+/* Кнопка переключения темы */
+#theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  background-color: #ff6347;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+/* Основной контент */
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  gap: 20px;
+  box-sizing: border-box;
+}
+
+/* Рекламные блоки */
+@keyframes blink-yellow {
+  0%, 100% {
+    background-color: #FFD700;
+  }
+  50% {
+    background-color: #FFFF00;
+  }
+}
+
+.ad-left, .ad-right {
+  width: 150px;
+  background-color: #ffcc00;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  transform: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 1000;
+  animation: blink-yellow 1.5s infinite;
+}
+
+.ad-left {
+  left: 10px;
+}
+
+.ad-right {
+  right: 10px;
+}
+
+/* Герой */
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px;
+  background-color: #ffffff;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.dark-theme .hero {
+  background-color: #2c2c2c;
+}
+
+.hero-content {
+  max-width: 50%;
+}
+
+.hero h2 {
+  font-size: 55px;
+  font-weight: 800;
+  margin: 0;
+}
+
+.hero p {
+  font-size: 24px;
+  margin: 20px 0;
+}
+
+.hero-image {
+  max-width: 40%;
+  height: auto;
+  border-radius: 10px;
+}
+
+@keyframes blink-red {
+  0%, 100% {
+    background-color: #ff6347;
+  }
+  50% {
+    background-color: #ff4500;
+  }
+}
+
+.cta-button {
+  background-color: #ff6347;
+  color: #ffffff;
+  border: none;
+  padding: 15px 30px;
+  font-size: 24px;
+  cursor: pointer;
+  border-radius: 5px;
+  animation: blink-red 1.0s infinite;
+}
+
+.cta-button:hover {
+  background-color: #ff4500;
+}
+
+/* Особенности */
+.features {
+  display: flex;
+  justify-content: space-around;
+  padding: 50px;
+  background-color: #f4f4f4;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.dark-theme .features {
+  background-color: #3a3a3a;
+}
+
+.feature {
+  text-align: center;
+  max-width: 30%;
+}
+
+.feature img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.feature h3 {
+  font-size: 32px;
+  font-weight: 900;
+  font-style: italic;
+  margin: 20px 0;
+}
+
+.feature p {
+  font-size: 24px;
+  color: #555;
+}
+
+.dark-theme .feature p {
+  color: #ccc;
+}
+
+/* Причины */
+.reasons {
+  margin: 40px 0;
+  padding: 50px;
+  background-color: #ffffff;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.dark-theme .reasons {
+  background-color: #2c2c2c;
+}
+
+.reasons h2 {
+  font-size: 48px;
+  font-weight: 800;
+  margin-bottom: 40px;
+}
+
+.reasons ul {
+  list-style-type: none;
+  padding: 0;
+  display: inline-block;
+  text-align: left;
+}
+
+.reasons li {
+  font-size: 24px;
+  margin: 10px 0;
+  padding-left: 20px;
+  position: relative;
+}
+
+.reasons li::before {
+  content: "🍌";
+  position: absolute;
+  left: 0;
+}
+
+/* Отзывы */
+.testimonials {
+  padding: 50px;
+  background-color: #ffffff;
+  text-align: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.dark-theme .testimonials {
+  background-color: #2c2c2c;
+}
+
+.testimonials h2 {
+  font-size: 48px;
+  font-weight: 800;
+  color: #333;
+  text-align: center;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.dark-theme .testimonials h2 {
+  color: #ccc;
+}
+
+.testimonials h2::before,
+.testimonials h2::after {
+  content: "";
+  display: inline-block;
+  width: 50px;
+  height: 3px;
+  background-color: #ff6347;
+  margin: 0 20px;
+  vertical-align: middle;
+}
+
+#review-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+#review-form input,
+#review-form textarea,
+#review-form select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#review-form button {
+  padding: 10px;
+  background-color: #ff6347;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Контейнер отзывов */
+#reviews-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 33.33%; /* 1/3 от ширины родительского элемента */
+  margin: 0 auto; /* Центрирование по горизонтали */
+}
+
+/* Отзывы */
+.testimonial {
+  background-color: #ffd7d7;
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%; /* Занимает всю ширину контейнера */
+}
+
+.dark-theme .testimonial {
+  background-color: #444;
+  color: #ffffff;
+}
+
+/* Стили для фото в отзыве */
+.testimonial img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-top: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Стили для формы загрузки фото */
+#review-photo {
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.dark-theme #review-photo {
+  background-color: #444;
+  border-color: #666;
+  color: #fff;
+}
+
+.filters {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.filters button {
+  padding: 10px;
+  background-color: #ff6347;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Призыв к действию */
+.cta {
+  text-align: center;
+  padding: 50px;
+  background-color: #ff6347;
+  color: #ffffff;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  animation: blink-red 1.5s infinite;
+}
+
+.dark-theme .cta {
+  background-color: #8b0000;
+}
+
+.cta h2 {
+  font-size: 48px;
+  font-weight: 800;
+  margin: 0 0 20px;
+}
+
+/* Подвал */
+.footer {
+  background-color: #000000;
+  color: #ffffff;
+  text-align: center;
+  border-top: 1px solid #ddd;
+  margin-top: 40px;
+  width: 100%;
+  height: 135px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dark-theme .footer {
+  background-color: #1a1a1a;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 24px;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .ad-left, .ad-right {
+    position: static;
+    width: 100%;
+    margin: 10px 0;
+    transform: none;
+  }
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+
+  .hero-image {
+    max-width: 80%;
+    margin-top: 20px;
+  }
+
+  .features {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .feature {
+    max-width: 80%;
+    margin-bottom: 30px;
+  }
+
+  .testimonial {
+    max-width: 90%;
+  }
+
+  #reviews-container {
+    width: 100%; /* На мобильных отзывы занимают всю ширину */
+  }
+}
+
+@media (max-width: 480px) {
+  .header h1 {
+    font-size: 32px;
+  }
+
+  .header p {
+    font-size: 24px;
+  }
+
+  .hero h2 {
+    font-size: 32px;
+  }
+
+  .hero p {
+    font-size: 18px;
+  }
+
+  .cta-button {
+    font-size: 18px;
+    padding: 10px 20px;
+  }
+
+  .features {
+    padding: 20px;
+  }
+
+  .feature h3 {
+    font-size: 24px;
+  }
+
+  .feature p {
+    font-size: 18px;
+  }
+
+  .reasons h2 {
+    font-size: 32px;
+  }
+
+  .reasons li {
+    font-size: 18px;
+  }
+
+  .testimonials h2 {
+    font-size: 32px;
+  }
+
+  .testimonial p {
+    font-size: 18px;
+  }
+
+  .cta h2 {
+    font-size: 32px;
+  }
+
+  .footer p {
+    font-size: 18px;
+  }
+}
