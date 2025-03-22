@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Techies - Dota 2</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+<header>
+    <h1>TECHIES - DOTA 2</h1>
+    <button id="edit-mode-toggle">Режим редактирования</button>
+</header>
+<div class="container">
+    <div class="left-side">
+        <div id="profile-image"></div>
+        <div id="short-info">
+            <p><strong>Имя:</strong> Techies</p>
+            <p><strong>Роль:</strong> Поддержка / Сапёр</p>
+            <p><strong>Сложность:</strong> Высокая</p>
+            <p><strong>Описание:</strong> Techies — это команда из трёх гоблинов, специализирующихся на установке мин и ловушек.</p>
+            <p><a href="https://www.dota2.com/hero/techies" class="link-block">Официальная страница Techies по клику</a></p>
+        </div>
+         <!-- Блок истории будет добавлен через JS -->
+    </div>
+    <div id="history-block"></div>
+    <div class="midl-side">
+        <div id="content"></div>
+    </div>
+</div>
+<div id="edit-controls" style="display: none;">
+    <button onclick="addBlock('text', prompt('Введите текст:'))">Добавить текстовый блок</button>
+    <button onclick="addBlock('image', prompt('Введите URL изображения:'))">Добавить изображение</button>
+    <button onclick="addBlock('link', { url: prompt('Введите URL:'), text: prompt('Введите текст ссылки:') })">Добавить ссылку</button>
+    <button onclick="addBlock('ability', { name: prompt('Введите название способности:'), description: prompt('Введите описание:'), image: prompt('Введите URL изображения:') })">Добавить способность</button>
+    <button onclick="addBlock('history', { text: prompt('Введите текст истории:'), image: prompt('Введите URL изображения:') })">Добавить историю</button>
+    <button onclick="saveChanges()">Сохранить изменения</button>
+    <button onclick="resetToDefault()">Сбросить</button>
+</div>
+<button onclick="resetToDefault()" class="reset-button">Сбросить</button>
+<script src="js/index.js"></script>
+</body>
+</html>
