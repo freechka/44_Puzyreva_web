@@ -8,26 +8,41 @@
 </head>
 <body>
 <header>
-    <h1>TECHIES - DOTA 2</h1>
+    <div class="header-nav-container">
+        <h1>
+            <span class="logo-icon"></span>
+            TECHIES - DOTA 2
+        </h1>
+        <nav>
+            <ul>
+                <li><a href="#" class="active" data-section="main">Главная</a></li>
+                <li><a href="#" data-section="population">Население</a></li>
+                <li><a href="#" data-section="jokes">Шутки</a></li>
+                <li><a href="#" data-section="bitcoin">Биткоин</a></li>
+                <li><a href="#" data-section="users">Пользователи</a></li>
+            </ul>
+        </nav>
+    </div>
     <button id="edit-mode-toggle">Режим редактирования</button>
 </header>
-<div class="container">
-    <div class="left-side">
-        <div id="profile-image"></div>
-        <div id="short-info">
-            <p><strong>Имя:</strong> Techies</p>
-            <p><strong>Роль:</strong> Поддержка / Сапёр</p>
-            <p><strong>Сложность:</strong> Высокая</p>
-            <p><strong>Описание:</strong> Techies — это команда из трёх гоблинов, специализирующихся на установке мин и ловушек.</p>
-            <p><a href="https://www.dota2.com/hero/techies" class="link-block">Официальная страница Techies по клику</a></p>
+
+<div class="main-content">
+    <div class="container active" id="main-section">
+        <div class="left-side">
+            <div id="profile-image"></div>
+            <div id="short-info"></div>
         </div>
-         <!-- Блок истории будет добавлен через JS -->
+        <div id="history-block"></div>
+        <div class="midl-side">
+            <div id="content"></div>
+        </div>
     </div>
-    <div id="history-block"></div>
-    <div class="midl-side">
-        <div id="content"></div>
+
+    <div class="api-container" id="api-results">
+        <div id="api-content"></div>
     </div>
 </div>
+
 <div id="edit-controls" style="display: none;">
     <button onclick="addBlock('text', prompt('Введите текст:'))">Добавить текстовый блок</button>
     <button onclick="addBlock('image', prompt('Введите URL изображения:'))">Добавить изображение</button>
@@ -37,6 +52,7 @@
     <button onclick="saveChanges()">Сохранить изменения</button>
     <button onclick="resetToDefault()">Сбросить</button>
 </div>
+
 <button onclick="resetToDefault()" class="reset-button">Сбросить</button>
 <script src="js/index.js"></script>
 </body>
