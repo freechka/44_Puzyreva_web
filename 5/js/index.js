@@ -371,7 +371,7 @@ function renderUsers(users) {
     let html = `
         <div class="api-card">
             <h3>👥 Управление пользователями</h3>
-            <button onclick="showAddUserForm()">Добавить пользователя</button>
+            <button id="add-user-btn">Добавить пользователя</button>
             <table class="users-table">
                 <tr>
                     <th>ID</th>
@@ -388,14 +388,90 @@ function renderUsers(users) {
                 <td>${user.name}</td>
                 <td>${user.email}</td>
                 <td>
-                    <button onclick="editUser(${user.id})">✏️</button>
-                    <button onclick="deleteUser(${user.id})">🗑️</button>
+                    <button class="edit-user-btn" data-id="${user.id}">✏️</button>
+                    <button class="delete-user-btn" data-id="${user.id}">🗑️</button>
                 </td>
             </tr>
         `;
     });
 
     apiContent.innerHTML = html + `</table></div>`;
+
+    document.getElementById('add-user-btn')?.addEventListener('click', showAddUserForm);
+    document.querySelectorAll('.edit-user-btn').forEach(btn => {
+        btn.addEventListener('click', () => editUser(parseInt(btn.dataset.id)));
+    });
+    document.querySelectorAll('.delete-user-btn').forEach(btn => {
+        btn.addEventListener('click', () => deleteUser(parseInt(btn.dataset.id)));
+    });
+}
+
+async function updateUser(id, userData) {
+    const apiContent = document.getElementById('api-content');
+    apiContent.innerHTML = '<div class="loading">⏳ Обновление пользователя...</div>';
+
+    try {
+        const response = await fetch(`https://jsonplaceholder.typicode.com/users/${id}`, {
+            method: 'PUT',
+            body: JSON.stringify({
+                ...userData,
+                id: id
+            }),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+        });
+
+        if (!response.ok) throw new Error(`Ошибка HTTP: ${response.status}`);
+
+        const index = currentUsers.findIndex(u => u.id === id);
+        if (index !== -1) {
+            currentUsers[index] = { ...currentUsers[index], ...userData };
+        }
+
+        showEditUserForm(id);
+        alert('Пользователь успешно обновлен!');
+    } catch (error) {
+        apiContent.innerHTML = `<div class="error">❌ Ошибка: ${error.message}</div>`;
+    }
+}
+
+function showEditUserForm(id) {
+    const user = currentUsers.find(u => u.id === id);
+    if (!user) return;
+
+    const apiContent = document.getElementById('api-content');
+    apiContent.innerHTML = `
+        <div class="api-card">
+            <h3>✏️ Редактировать пользователя</h3>
+            <form id="edit-user-form">
+                <input type="text" name="name" value="${user.name}" required>
+                <input type="email" name="email" value="${user.email}" required>
+                <div class="form-buttons">
+                    <button type="submit">Сохранить</button>
+                    <button type="button" id="cancel-edit">Отмена</button>
+                    <button type="button" id="show-patch">Частичное обновление</button>
+                </div>
+            </form>
+        </div>
+    `;
+
+    document.getElementById('edit-user-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const formData = new FormData(e.target);
+        const userData = {
+            name: formData.get('name'),
+            email: formData.get('email')
+        };
+        updateUser(id, userData);
+    });
+    document.getElementById('cancel-edit').addEventListener('click', () => {
+        renderUsers(currentUsers);
+    });
+
+    document.getElementById('show-patch').addEventListener('click', () => {
+        showPatchForm(id);
+    });
 }
 
 // POST - Добавление пользователя
@@ -732,3 +808,17 @@ function formatNumber(num) {
 function setupEventListeners() {
     document.getElementById('edit-mode-toggle').addEventListener('click', toggleEditMode);
 }
+
+window.showAddUserForm = showAddUserForm;
+window.editUser = (id) => showEditUserForm(id);
+window.deleteUser = deleteUser;
+window.handleAddUser = handleAddUser;
+window.handleUpdateUser = handleUpdateUser;
+window.handlePatchUser = handlePatchUser;
+window.showPatchForm = showPatchForm;
+window.removeBlock = removeBlock;
+window.editBlock = editBlock;
+window.editShortInfo = editShortInfo;
+window.editHistory = editHistory;
+window.saveChanges = saveChanges;
+window.resetToDefault = resetToDefault;
